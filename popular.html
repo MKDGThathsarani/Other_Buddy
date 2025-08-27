@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Buddy's - Popular Items</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Atma:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f987a2d5;
+            --secondary: #F7C59F;
+            --accent: #ef476e8e;
+            --dark: #114B5F;
+            --light: #F8F7F2;
+            --text: #2D3436;
+            --gradient: linear-gradient(135deg, #fd9cb3b9 0%, #fad0c4 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --primary-color: #f987a2d5;
+            --dark-color: #114B5F;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98));
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: var(--transition);
+            background: rgba(247, 197, 159, 0.1);
+            border: 1px solid rgba(239, 71, 111, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(239, 71, 111, 0.05), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            background: rgba(247, 197, 159, 0.15);
+        }
+
+        .info-box:hover::before {
+            opacity: 1;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            box-shadow: 0 3px 6px rgba(239, 71, 111, 0.2);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .info-box:hover .info-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-text strong {
+            font-family: 'Atma', cursive;
+            font-size: 13px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .info-text span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .logo {
+            font-family: 'Atma', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        /* Navigation Styles */
+         .main-nav {
+            background: accent( --#fcd4de8e);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #f34e74d0;
+            color: white;
+        }
+
+        /* Popular Items Section */
+        .popular-section {
+            padding: 60px 5%;
+            background: linear-gradient(to bottom, var(--light) 0%,  #fa9fb471 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .popular-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="%23EF476F" opacity="0.03" d="M0,0 L100,0 L100,100 Q50,80 0,100"></path></svg>');
+            background-size: 100% auto;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            z-index: 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            font-family: 'Atma', cursive;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            color: var(--text);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .popular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .popular-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            transform: translateY(0);
+        }
+
+        .popular-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .popular-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(255, 107, 53, 0.1), rgba(239, 71, 111, 0.05));
+            opacity: 0;
+            transition: var(--transition);
+            z-index: 1;
+        }
+
+        .popular-card:hover::before {
+            opacity: 1;
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 3px 10px rgba(239, 71, 111, 0.3);
+        }
+
+        .popular-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .popular-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .popular-card:hover .popular-image img {
+            transform: scale(1.1);
+        }
+
+        .popular-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .popular-name {
+            font-family: 'Atma', cursive;
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .popular-name i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+
+        .popular-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .popular-tag {
+            background: rgba(247, 197, 159, 0.3);
+            color: var(--dark);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .popular-desc {
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            opacity: 0.9;
+        }
+
+        .popular-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .popular-price {
+            font-weight: bold;
+            color: var(--primary);
+            font-size: 1.3rem;
+        }
+
+        .popular-price span {
+            font-size: 0.9rem;
+            color: var(--text);
+            opacity: 0.7;
+            text-decoration: line-through;
+            margin-left: 5px;
+        }
+
+        .popular-btn {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(239, 71, 111, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .popular-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(239, 71, 111, 0.4);
+        }
+
+        .popular-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .popular-btn:hover i {
+            transform: rotate(20deg);
+        }
+
+        /* Special Offers Banner */
+        .offers-banner {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 20px;
+            margin: 60px auto;
+            border-radius: 12px;
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .offers-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 Q50,80 0,100"></path></svg>');
+            background-size: 50% auto;
+            background-repeat: repeat;
+            animation: slide 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+
+            100% {
+                transform: translateX(-50%) translateY(-50%);
+            }
+        }
+
+        .offers-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .offers-title {
+            font-family: 'Atma', cursive;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .offers-text {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .offers-btn {
+            background: white;
+            color: var(--primary);
+            border: none;
+            padding: 10px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .offers-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 60px 5%;
+            background:#fbe7ecc3;;
+            text-align: center;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 40px auto 0;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-family: 'Atma', cursive;
+            font-size: 5rem;
+            color: rgba(239, 71, 111, 0.1);
+            line-height: 1;
+            z-index: 0;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-text {
+            font-size: 1rem;
+            color: var(--text);
+            margin-bottom: 20px;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+        }
+
+        .testimonial-info {
+            text-align: left;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 3px;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--text);
+            opacity: 0.7;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px 5%;
+            }
+
+            .header-info {
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .info-box {
+                padding: 8px 12px;
+                flex: 1;
+            }
+
+            .logo {
+                order: -1;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                padding: 12px 5px;
+                font-size: 14px;
+                min-width: 80px;
+            }
+
+            .nav-link i {
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+
+            .info-text strong {
+                font-size: 11px;
+            }
+
+            .info-text span {
+                font-size: 12px;
+            }
+
+            .info-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-info {
+                flex-wrap: wrap;
+            }
+
+            .info-box {
+                min-width: calc(50% - 10px);
+            }
+
+            .nav-link {
+                font-size: 12px;
+                padding: 10px 2px;
+            }
+
+            .nav-link i {
+                font-size: 14px;
+                margin-bottom: 2px;
+            }
+
+            .popular-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .offers-title {
+                font-size: 1.5rem;
+            }
+
+            .offers-text {
+                font-size: 0.9rem;
+            }
+        }
+        .foot-content h1 {
+            text-align: center;
+            font-size: 100px;
+            color: #f0335f;
+        }
+
+        .foot-content p {
+            text-align: center;
+            font-size: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-top: -10px;
+            margin-bottom: 5%;
+        }
+
+        /* Shopping Cart Modal */
+        #cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        #close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        #cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details h4 {
+            margin: 0 0 5px;
+            color: var(--dark-color);
+        }
+
+        .cart-item-details small {
+            color: #888;
+        }
+
+        .cart-item-price {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-price span {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 20px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-totals {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        #checkout-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #checkout-btn:hover {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF9E4F 100%);
+        }
+
+        /* Cart Icon */
+        #cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,125,125,0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: white;
+            color: var(--primary-color);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-info">
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                    <strong>contact us</strong>
+                    <span>+94789543215</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="info-text">
+                    <strong>Personalised</strong>
+                    <span>Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="logo">
+            <a href="index.html" class="logo-link">Other Buddy's</a>
+        </div>
+
+        <div class="header-info">
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="info-text">
+                    <strong>Daily Delivery</strong>
+                    <span>7 A.M. to 10.30 P.M.</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link active" href="popular.html"><i class="fas fa-fire"></i> Popular</a>
+            <a class="nav-link" href="Offer.html"><i class="fas fa-percent"></i> Special Offers</a>
+            <a class="nav-link" href="newCateory.html"><i class="fa-solid fa-list"></i> Categories</a>
+            <a class="nav-link" href="About.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a class="nav-link" href="Contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+    </nav>
+
+    <!-- Popular Items Section -->
+    <section class="popular-section">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #f0335f;">Our Most Popular Items</h2>
+            <p class="section-subtitle">Customer favorites that keep them coming back for more</p>
+        </div>
+
+        <div class="popular-grid">
+            <!-- Item 1 -->
+            <div class="popular-card">
+                <div class="popular-badge">BESTSELLER</div>
+                <div class="popular-image">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Spicy Ramen">
+                </div>
+                <div class="popular-content">
+                    <h3 class="popular-name"><i class="fas fa-fire"></i> Spicy Miso Ramen</h3>
+                    <div class="popular-tags">
+                        <span class="popular-tag">Spicy</span>
+                        <span class="popular-tag">Hearty</span>
+                        <span class="popular-tag">Japanese</span>
+                    </div>
+                    <p class="popular-desc">Rich miso broth with perfectly cooked noodles, topped with chashu pork,
+                        soft-boiled egg, and our signature spicy blend.</p>
+                    <div class="popular-footer">
+                        <span class="popular-price">$12.99 <span>$15.99</span></span>
+                        <button class="popular-btn add-to-cart" 
+                                data-name="Spicy Miso Ramen" 
+                                data-price="12.99" 
+                                data-image="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                data-origin="Japanese">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="popular-card">
+                <div class="popular-badge">TRENDING</div>
+                <div class="popular-image">
+                    <img src="https://images.unsplash.com/photo-1516684732162-798a0062be99?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Chicken Fried Rice">
+                </div>
+                <div class="popular-content">
+                    <h3 class="popular-name"><i class="fas fa-drumstick-bite"></i> Chicken Fried Rice</h3>
+                    <div class="popular-tags">
+                        <span class="popular-tag">Savory</span>
+                        <span class="popular-tag">Comfort Food</span>
+                        <span class="popular-tag">Chinese</span>
+                    </div>
+                    <p class="popular-desc">Wok-fried rice with tender chicken pieces, fresh vegetables, and our special
+                        sauce blend. A customer favorite for decades.</p>
+                    <div class="popular-footer">
+                        <span class="popular-price">$10.49 <span>$12.99</span></span>
+                        <button class="popular-btn add-to-cart" 
+                                data-name="Chicken Fried Rice" 
+                                data-price="10.49" 
+                                data-image="https://images.unsplash.com/photo-1516684732162-798a0062be99?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                data-origin="Chinese">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="popular-card">
+                <div class="popular-badge">NEW</div>
+                <div class="popular-image">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Matcha Ice Cream">
+                </div>
+                <div class="popular-content">
+                    <h3 class="popular-name"><i class="fas fa-ice-cream"></i> Matcha Green Tea Ice</h3>
+                    <div class="popular-tags">
+                        <span class="popular-tag">Sweet</span>
+                        <span class="popular-tag">Refreshing</span>
+                        <span class="popular-tag">Japanese</span>
+                    </div>
+                    <p class="popular-desc">Premium matcha green tea ice cream made with authentic Japanese matcha
+                        powder. Creamy texture with perfect bitterness.</p>
+                    <div class="popular-footer">
+                        <span class="popular-price">$6.99 <span>$8.49</span></span>
+                        <button class="popular-btn add-to-cart" 
+                                data-name="Matcha Green Tea Ice" 
+                                data-price="6.99" 
+                                data-image="https://images.unsplash.com/photo-1509440159596-0249088772ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                data-origin="Japanese">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="popular-card">
+                <div class="popular-badge">FAVORITE</div>
+                <div class="popular-image">
+                    <img src="https://images.unsplash.com/photo-1534482421-64566f976cfa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Bubble Tea">
+                </div>
+                <div class="popular-content">
+                    <h3 class="popular-name"><i class="fas fa-glass-whiskey"></i> Brown Sugar Bubble Tea</h3>
+                    <div class="popular-tags">
+                        <span class="popular-tag">Sweet</span>
+                        <span class="popular-tag">Chewy</span>
+                        <span class="popular-tag">Taiwanese</span>
+                    </div>
+                    <p class="popular-desc">Our signature drink with rich brown sugar syrup, fresh milk, and perfectly
+                        cooked tapioca pearls. Customizable sweetness.</p>
+                    <div class="popular-footer">
+                        <span class="popular-price">$5.99 <span>$7.49</span></span>
+                        <button class="popular-btn add-to-cart" 
+                                data-name="Brown Sugar Bubble Tea" 
+                                data-price="5.99" 
+                                data-image="https://images.unsplash.com/photo-1534482421-64566f976cfa?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                data-origin="Taiwanese">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="popular-card">
+                <div class="popular-badge">CLASSIC</div>
+                <div class="popular-image">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Beef Udon">
+                </div>
+                <div class="popular-content">
+                    <h3 class="popular-name"><i class="fas fa-utensils"></i> Beef Udon Soup</h3>
+                    <div class="popular-tags">
+                        <span class="popular-tag">Savory</span>
+                        <span class="popular-tag">Hearty</span>
+                        <span class="popular-tag">Japanese</span>
+                    </div>
+                    <p class="popular-desc">Thick udon noodles in a rich dashi broth with tender slices of beef, green
+                        onions, and a perfectly soft-boiled egg.</p>
+                    <div class="popular-footer">
+                        <span class="popular-price">$13.99</span>
+                        <button class="popular-btn add-to-cart" 
+                                data-name="Beef Udon Soup" 
+                                data-price="13.99" 
+                                data-image="https://images.unsplash.com/photo-1563245372-f21724e3856d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                data-origin="Japanese">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="popular-card">
+                <div class="popular-badge">SEASONAL</div>
+                <div class="popular-image">
+                    <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+                        alt="Mango Sticky Rice">
+                </div>
+                <div class="popular-content">
+                    <h3 class="popular-name"><i class="fas fa-leaf"></i> Mango Sticky Rice</h3>
+                    <div class="popular-tags">
+                        <span class="popular-tag">Sweet</span>
+                        <span class="popular-tag">Tropical</span>
+                        <span class="popular-tag">Thai</span>
+                    </div>
+                    <p class="popular-desc">Sweet sticky rice with fresh mango slices and coconut milk drizzle. A
+                        perfect balance of sweetness and creaminess.</p>
+                    <div class="popular-footer">
+                        <span class="popular-price">$8.99</span>
+                        <button class="popular-btn add-to-cart" 
+                                data-name="Mango Sticky Rice" 
+                                data-price="8.99" 
+                                data-image="https://images.unsplash.com/photo-1563805042-7684c019e1cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                                data-origin="Thai">
+                            <i class="fas fa-cart-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers Banner -->
+    <section class="offers-banner">
+        <div class="offers-content">
+            <h3 class="offers-title">Limited Time Offers!</h3>
+            <p class="offers-text">Get 20% off all popular items when you order through our app. Plus free delivery on
+                orders over $25!</p>
+            <button class="offers-btn">Download Our App</button>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #f0335f;">What Our Customers Say</h2>
+            <p class="section-subtitle">Don't just take our word for it - hear from our satisfied customers</p>
+        </div>
+
+        <div class="testimonial-grid">
+            <!-- Testimonial 1 -->
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">The Spicy Miso Ramen is absolutely incredible! Perfect balance of heat
+                        and flavor. I order it at least twice a week.</p>
+                    <div class="testimonial-author">
+                        <img src="popular.PNG/p1.jpg" alt="Sarah J."
+                            class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Sadaru Wickram</div>
+                            <div class="testimonial-role">Regular Customer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">Best bubble tea in town! The brown sugar one is my go-to. Perfect
+                        sweetness and the pearls are always fresh.</p>
+                    <div class="testimonial-author">
+                        <img src="popular.PNG/p2.webp" alt="Michael T."
+                            class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Michael pranando</div>
+                            <div class="testimonial-role">Food Blogger</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="testimonial-card">
+                <div class="testimonial-content">
+                    <p class="testimonial-text">The Beef Udon Soup is comfort in a bowl. The broth is so flavorful and
+                        the beef melts in your mouth. Highly recommend!</p>
+                    <div class="testimonial-author">
+                        <img src="popular.PNG/p3.webp" alt="Jennifer L."
+                            class="testimonial-avatar">
+                        <div class="testimonial-info">
+                            <div class="testimonial-name">Jayani Ranasinhe</div>
+                            <div class="testimonial-role">First-time Customer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Happy Section -->
+     <div class="foot-content">
+        <h1>Get More Be Happy !</h1>
+        <p>"Can I order a burger so enormous that not even my biggest worries could take a bite out of it? I'm talking
+            about a burger so colossal that it would take me a week just to finish the toppings! Because let's be
+            honest, a truly massive burger is the perfect antidote for any bad day. 🍔😆"</p>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal"> 
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button id="close-cart">&times;</button>
+            </div>
+            <div id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-totals">
+                <div class="cart-total-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="cart-total-row">
+                    <span>Tax (8%):</span>
+                    <span id="cart-tax">$0.00</span>
+                </div>
+                <div class="cart-total-row" style="font-size: 1.2rem;">
+                    <span>Total:</span>
+                    <span id="cart-total" style="color: var(--primary-color); font-weight: bold;">$0.00</span>
+                </div>
+                <button id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Icon -->
+    <div id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+    <script>
+        // Shopping Cart Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const cart = [];
+            const cartIcon = document.getElementById('cart-icon');
+            const cartModal = document.getElementById('cart-modal');
+            const closeCart = document.getElementById('close-cart');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTax = document.getElementById('cart-tax');
+            const cartTotal = document.getElementById('cart-total');
+            const cartCount = document.getElementById('cart-count');
+
+            // Add to Cart buttons - now using the popular-btn class with add-to-cart class
+            const addToCartButtons = document.querySelectorAll('.popular-btn.add-to-cart');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    const image = this.getAttribute('data-image');
+                    const origin = this.getAttribute('data-origin');
+
+                    // Add item to cart
+                    cart.push({
+                        name: name,
+                        price: price,
+                        image: image,
+                        origin: origin
+                    });
+
+                    // Update cart count
+                    updateCartCount();
+
+                    // Show animation on cart icon
+                    cartIcon.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        cartIcon.style.transform = 'scale(1)';
+                    }, 300);
+
+                    // Change button to show "Added" state
+                    const originalHTML = this.innerHTML;
+                    const originalBg = this.style.background;
+                    this.innerHTML = '<i class="fas fa-check"></i> Added!';
+                    this.style.background = '#06D6A0';
+                    this.style.boxShadow = '0 3px 10px rgba(6, 214, 160, 0.3)';
+
+                    // Return to original state after 1.5 seconds
+                    setTimeout(() => {
+                        this.innerHTML = originalHTML;
+                        this.style.background = originalBg;
+                        this.style.boxShadow = '0 3px 10px rgba(239, 71, 111, 0.3)';
+                    }, 1500);
+                });
+            });
+
+            // Cart icon click
+            cartIcon.addEventListener('click', function () {
+                cartModal.style.display = 'flex';
+                updateCartDisplay();
+            });
+
+            // Close cart
+            closeCart.addEventListener('click', function () {
+                cartModal.style.display = 'none';
+            });
+
+            // Update cart count
+            function updateCartCount() {
+                cartCount.textContent = cart.length;
+            }
+
+            // Update cart display
+            function updateCartDisplay() {
+                // Clear current items
+                cartItemsContainer.innerHTML = '';
+
+                // Add each item to the cart display
+                let subtotal = 0;
+
+                cart.forEach((item, index) => {
+                    subtotal += item.price;
+
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <small>${item.origin}</small>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <span>$${item.price.toFixed(2)}</span>
+                            <button class="remove-item" data-index="${index}">×</button>
+                        </div>
+                    `;
+
+                    cartItemsContainer.appendChild(itemElement);
+                });
+
+                // Calculate totals
+                const tax = subtotal * 0.08;
+                const total = subtotal + tax;
+
+                cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+                cartTax.textContent = `$${tax.toFixed(2)}`;
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+            }
+
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', function () {
+                alert('Thank you for your order! Your delicious food will be prepared soon.');
+                cart.length = 0;
+                updateCartDisplay();
+                updateCartCount();
+                cartModal.style.display = 'none';
+            });
+
+            // Animation for section headers when scrolling
+            const animateOnScroll = () => {
+                const sections = document.querySelectorAll('.section-header');
+
+                sections.forEach(section => {
+                    const sectionPosition = section.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+
+                    if (sectionPosition < screenPosition) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+
+            // Set initial state
+            document.querySelectorAll('.section-header').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+
+            // Run on load and scroll
+            window.addEventListener('load', animateOnScroll);
+            window.addEventListener('scroll', animateOnScroll);
+
+            // Special offer button animation
+            const offerBtn = document.querySelector('.offers-btn');
+            if (offerBtn) {
+                offerBtn.addEventListener('click', function () {
+                    // Pulse animation
+                    this.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        this.style.transform = 'scale(1)';
+                    }, 300);
+
+                    console.log('Download app button clicked');
+                    // In a real implementation, this would link to app download
+                });
+            }
+
+            // Testimonial card hover effect
+            const testimonialCards = document.querySelectorAll('.testimonial-card');
+            testimonialCards.forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-5px)';
+                    card.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = '';
+                    card.style.boxShadow = 'var(--shadow-sm)';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

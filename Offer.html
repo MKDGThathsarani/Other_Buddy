@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Offers - Other Buddy's Gourmet Food Delivery</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Atma:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #f987a2d5;
+            --secondary: #F7C59F;
+            --accent: #f34e74d0;
+            --dark: #114B5F;
+            --light: #F8F7F2;
+            --text: #2D3436;
+            --gradient: linear-gradient(135deg, #fd9cb392 0%, #fad0c4 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 8px 25px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles - Same as category page */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: var(--transition);
+            background: rgba(247, 197, 159, 0.1);
+            border: 1px solid rgba(239, 71, 111, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(239, 71, 111, 0.05), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            background: rgba(247, 197, 159, 0.15);
+        }
+
+        .info-box:hover::before {
+            opacity: 1;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            box-shadow: 0 3px 6px rgba(239, 71, 111, 0.2);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .info-box:hover .info-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-text strong {
+            font-family: 'Atma', cursive;
+            font-size: 13px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .info-text span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .logo {
+            font-family: 'Atma', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        /* Navigation Styles */
+        .main-nav {
+            background: accent(--#fcd4de8e);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: white;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #f0335f71;
+            color: var(--primary-color);
+        }
+
+        /* Special Offers Banner */
+        .offers-banner {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .offers-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path fill="rgba(255,255,255,0.05)" d="M0,0 L100,0 L100,100 L0,100 Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.3;
+        }
+
+        .offers-banner h1 {
+            font-family: 'Atma', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .offers-banner p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            position: relative;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px 25px;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .countdown-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Atma', cursive;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Offers Grid */
+        .offers-section {
+            padding: 60px 5%;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            font-family: 'Atma', cursive;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .offer-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .offer-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 3px 10px rgba(239, 71, 111, 0.3);
+        }
+
+        .offer-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .offer-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .offer-card:hover .offer-image img {
+            transform: scale(1.05);
+        }
+
+        .offer-content {
+            padding: 20px;
+        }
+
+        .offer-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            font-family: 'Atma', cursive;
+        }
+
+        .offer-description {
+            color: var(--text);
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .offer-price {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .current-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+
+        .original-price {
+            font-size: 1.1rem;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .discount {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .offer-button {
+            display: block;
+            width: 100%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .offer-button:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Combo Offers Section */
+        .combo-section {
+            padding: 60px 5%;
+            background: linear-gradient(135deg, rgba(247, 197, 159, 0.1), rgba(239, 71, 111, 0.05));
+        }
+
+        .combo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            transition: var(--transition);
+        }
+
+        .combo-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .combo-images {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            padding: 5px;
+        }
+
+        .combo-image {
+            height: 180px;
+            overflow: hidden;
+        }
+
+        .combo-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .combo-card:hover .combo-image img {
+            transform: scale(1.05);
+        }
+
+        .combo-content {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .combo-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            font-family: 'Atma', cursive;
+        }
+
+        .combo-description {
+            color: var(--text);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .combo-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .combo-savings {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px 5%;
+            }
+
+            .header-info {
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .info-box {
+                padding: 8px 12px;
+                flex: 1;
+            }
+
+            .logo {
+                order: -1;
+                margin-bottom: 10px;
+            }
+
+            .combo-card {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                padding: 12px 5px;
+                font-size: 14px;
+                min-width: 80px;
+            }
+
+            .nav-link i {
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+
+            .info-text strong {
+                font-size: 11px;
+            }
+
+            .info-text span {
+                font-size: 12px;
+            }
+
+            .info-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .offers-banner h1 {
+                font-size: 2.5rem;
+            }
+
+            .countdown-item {
+                padding: 10px 15px;
+            }
+
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-info {
+                flex-wrap: wrap;
+            }
+
+            .info-box {
+                min-width: calc(50% - 10px);
+            }
+
+            .nav-link {
+                font-size: 12px;
+                padding: 10px 2px;
+            }
+
+            .nav-link i {
+                font-size: 14px;
+                margin-bottom: 2px;
+            }
+
+            .offers-banner h1 {
+                font-size: 2rem;
+            }
+
+            .countdown {
+                flex-wrap: wrap;
+            }
+
+            .countdown-item {
+                padding: 8px 12px;
+            }
+
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+        }
+
+        .foot-content h1 {
+            text-align: center;
+            font-size: 100px;
+            color: #f0335f;
+        }
+
+        .foot-content p {
+            text-align: center;
+            font-size: 20px;
+            padding-left: 10%;
+            padding-right: 10%;
+            margin-top: -10px;
+            margin-bottom: 5%;
+        }
+
+        /* Shopping Cart Modal */
+        #cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        #close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark);
+        }
+
+        #cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details h4 {
+            margin: 0 0 5px;
+            color: var(--dark);
+        }
+
+        .cart-item-details small {
+            color: #888;
+        }
+
+        .cart-item-price {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-price span {
+            font-weight: bold;
+            color: var(--primary);
+            margin-right: 20px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-totals {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        #checkout-btn {
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #checkout-btn:hover {
+            background: linear-gradient(to right, var(--accent), var(--primary));
+        }
+
+        /* Cart Icon */
+        #cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(239, 71, 111, 0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: white;
+            color: var(--primary);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section - Same as category page -->
+    <header class="header">
+        <div class="header-info">
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                    <strong>contact us</strong>
+                    <span>+94789543215</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="info-text">
+                    <strong>Personalised</strong>
+                    <span>Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="logo">
+            <a href="index.html" class="logo-link">Other Buddy's</a>
+        </div>
+
+        <div class="header-info">
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="info-text">
+                    <strong>Daily Delivery</strong>
+                    <span>7 A.M. to 10.30 P.M.</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation - Same as category page -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="popular.html"><i class="fas fa-fire"></i> Popular</a>
+            <a class="nav-link active" href="Offer.html"><i class="fas fa-percent"></i> Special Offers</a>
+            <a class="nav-link" href="About.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a class="nav-link" href="Contact.html"><i class="fas fa-envelope"></i> Contact</a>
+
+
+        </div>
+    </nav>
+
+    <!-- Special Offers Banner -->
+    <section class="offers-banner">
+        <h1>LIMITED TIME OFFERS</h1>
+        <p>Enjoy exclusive discounts on our most popular dishes. These special prices won't last forever!</p>
+
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">03</div>
+                <div class="countdown-label">Days</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">12</div>
+                <div class="countdown-label">Hours</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">45</div>
+                <div class="countdown-label">Minutes</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">30</div>
+                <div class="countdown-label">Seconds</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Offers Section -->
+    <section class="offers-section">
+        <div class="section-title">
+            <h2>Today's Featured Offers</h2>
+        </div>
+
+        <div class="offers-grid">
+            <!-- Offer 1 -->
+            <div class="offer-card">
+                <div class="offer-badge">HOT DEAL</div>
+                <div class="offer-image">
+                    <img src="Cateory PNG/Biryani.jpg" alt="Special Biryani">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Royal Biryani Feast</h3>
+                    <p class="offer-description">Our signature biryani with double meat portions, raita, and a side of
+                        naan bread.</p>
+                    <div class="offer-price">
+                        <span class="current-price">$14.99</span>
+                        <span class="original-price">$19.99</span>
+                        <span class="discount">25% OFF</span>
+                    </div>
+                    <a href="newCateory.html" class="offer-button">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- Offer 2 -->
+            <div class="offer-card">
+                <div class="offer-badge">NEW</div>
+                <div class="offer-image">
+                    <img src="Cateory PNG/Gelato.jpg" alt="Gelato Special">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Italian Gelato Duo</h3>
+                    <p class="offer-description">Two scoops of authentic Italian gelato with your choice of flavors and
+                        toppings.</p>
+                    <div class="offer-price">
+                        <span class="current-price">$6.99</span>
+                        <span class="original-price">$9.99</span>
+                        <span class="discount">30% OFF</span>
+                    </div>
+                    <a href="newCateory.html" class="offer-button">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- Offer 3 -->
+            <div class="offer-card">
+                <div class="offer-badge">POPULAR</div>
+                <div class="offer-image">
+                    <img src="Cateory PNG/Bubble Tea.jpeg" alt="Bubble Tea Combo">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Bubble Tea Party Pack</h3>
+                    <p class="offer-description">Four bubble teas with different flavors and extra tapioca pearls on the
+                        side.</p>
+                    <div class="offer-price">
+                        <span class="current-price">$15.99</span>
+                        <span class="original-price">$22.99</span>
+                        <span class="discount">30% OFF</span>
+                    </div>
+                    <a href="newCateory.html" class="offer-button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combo Offers Section -->
+    <section class="combo-section">
+        <div class="section-title">
+            <h2>Exclusive Combos</h2>
+        </div>
+
+        <div class="combo-card">
+            <div class="combo-images">
+                <div class="combo-image">
+                    <img src="Cateory PNG/Clay Pot Rice.webp" alt="Clay Pot Rice">
+                </div>
+                <div class="combo-image">
+                    <img src="Cateory PNG/Ayran.jpg" alt="Ayran Drink">
+                </div>
+                <div class="combo-image">
+                    <img src="Cateory PNG/Golden Gaytime.jpg" alt="Golden Gaytime">
+                </div>
+                <div class="combo-image">
+                    <img src="Cateory PNG/Lassi.jpg" alt="Lassi Drink">
+                </div>
+            </div>
+            <div class="combo-content">
+                <h3 class="combo-title">Asian Fusion Feast</h3>
+                <p class="combo-description">Experience the best of Asian cuisine with this complete meal combo
+                    featuring Clay Pot Rice, your choice of Ayran or Lassi drink, and a delicious Golden Gaytime ice
+                    cream for dessert.</p>
+                <div class="combo-price">$24.99</div>
+                <span class="combo-savings">Save $8.50 compared to individual purchases</span>
+                <a href="#" class="offer-button">Order This Combo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weekly Specials Section -->
+    <section class="offers-section"
+        style="background: linear-gradient(135deg, rgba(17, 75, 95, 0.03), rgba(239, 71, 111, 0.03));">
+        <div class="section-title">
+            <h2>Weekly Specials</h2>
+        </div>
+
+        <div class="offers-grid">
+            <!-- Weekly Special 1 -->
+            <div class="offer-card">
+                <div class="offer-badge">MONDAY</div>
+                <div class="offer-image">
+                    <img src="Cateory PNG/Udon.jpg" alt="Monday Udon Special">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Udon Madness</h3>
+                    <p class="offer-description">Every Monday enjoy our signature Udon noodles with extra toppings at a
+                        special price.</p>
+                    <div class="offer-price">
+                        <span class="current-price">$9.99</span>
+                        <span class="original-price">$13.99</span>
+                        <span class="discount">28% OFF</span>
+                    </div>
+                    <a href="#" class="offer-button">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- Weekly Special 2 -->
+            <div class="offer-card">
+                <div class="offer-badge">WEDNESDAY</div>
+                <div class="offer-image">
+                    <img src="Cateory PNG/Khao Soi.webp" alt="Wednesday Khao Soi">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Khao Soi Wednesday</h3>
+                    <p class="offer-description">Authentic Thai Khao Soi with coconut curry broth and your choice of
+                        protein.</p>
+                    <div class="offer-price">
+                        <span class="current-price">$10.99</span>
+                        <span class="original-price">$14.99</span>
+                        <span class="discount">26% OFF</span>
+                    </div>
+                    <a href="#" class="offer-button">Add to Cart</a>
+                </div>
+            </div>
+
+            <!-- Weekly Special 3 -->
+            <div class="offer-card">
+                <div class="offer-badge">FRIDAY</div>
+                <div class="offer-image">
+                    <img src="Cateory PNG/sushi rice.png" alt="Friday Sushi Special">
+                </div>
+                <div class="offer-content">
+                    <h3 class="offer-title">Sushi Friday</h3>
+                    <p class="offer-description">Celebrate the weekend with our premium sushi rice platter and miso
+                        soup.</p>
+                    <div class="offer-price">
+                        <span class="current-price">$12.99</span>
+                        <span class="original-price">$17.99</span>
+                        <span class="discount">27% OFF</span>
+                    </div>
+                    <a href="#" class="offer-button">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal">
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button id="close-cart">&times;</button>
+            </div>
+            <div id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-totals">
+                <div class="cart-total-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="cart-total-row">
+                    <span>Tax (8%):</span>
+                    <span id="cart-tax">$0.00</span>
+                </div>
+                <div class="cart-total-row" style="font-size: 1.2rem;">
+                    <span>Total:</span>
+                    <span id="cart-total" style="color: var(--primary); font-weight: bold;">$0.00</span>
+                </div>
+                <button id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Icon -->
+    <div id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+
+    <!-- HAPPY -->
+    <div class="foot-content">
+        <h1>Get More Be Happy !</h1>
+        <p>"Can I order a burger so enormous that not even my biggest worries could take a bite out of it? I'm talking
+            about a burger so colossal that it would take me a week just to finish the toppings! Because let's be
+            honest, a truly massive burger is the perfect antidote for any bad day. 🍔😆"</p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Logo hover effect
+            const logo = document.querySelector('.logo');
+
+            logo.addEventListener('mouseenter', () => {
+                logo.style.transform = 'translateY(-3px) scale(1.03)';
+                logo.style.boxShadow = '0 8px 25px rgba(239, 71, 111, 0.3)';
+            });
+
+            logo.addEventListener('mouseleave', () => {
+                logo.style.transform = '';
+                logo.style.boxShadow = 'var(--shadow-md)';
+            });
+
+            // Nav link active state
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+
+            // Set special offers nav link as active
+            document.querySelector('.nav-link[href="special-offers.html"]').classList.add('active');
+
+            // Info box hover effects
+            const infoBoxes = document.querySelectorAll('.info-box');
+
+            infoBoxes.forEach(box => {
+                box.addEventListener('mouseenter', () => {
+                    const icon = box.querySelector('.info-icon');
+                    icon.style.transform = 'rotate(15deg) scale(1.1)';
+                });
+
+                box.addEventListener('mouseleave', () => {
+                    const icon = box.querySelector('.info-icon');
+                    icon.style.transform = '';
+                });
+            });
+
+            // Countdown timer
+            function updateCountdown() {
+                const now = new Date();
+                const endOfDay = new Date();
+                endOfDay.setHours(23, 59, 59, 999);
+
+                const diff = endOfDay - now;
+
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            }
+
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        });
+
+
+
+        // Shopping Cart Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartIcon = document.getElementById('cart-icon');
+            const cartModal = document.getElementById('cart-modal');
+            const closeCart = document.getElementById('close-cart');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTax = document.getElementById('cart-tax');
+            const cartTotal = document.getElementById('cart-total');
+            const cartCount = document.getElementById('cart-count');
+
+            // Update cart count on load
+            updateCartCount();
+
+            // Add to Cart buttons - for popular items
+            const addToCartButtons = document.querySelectorAll('.popular-btn');
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const card = this.closest('.popular-card');
+                    const name = card.querySelector('.popular-name').textContent.replace(/\n/g, '').trim();
+                    const priceText = card.querySelector('.popular-price').textContent;
+                    const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                    const image = card.querySelector('.popular-image img').src;
+
+                    // Add item to cart
+                    addToCart(name, price, image, 'Popular Item');
+
+                    // Show animation on cart icon
+                    animateCartIcon();
+                });
+            });
+
+            // Add to Cart buttons - for offer items
+            const offerAddButtons = document.querySelectorAll('.offer-button');
+            offerAddButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const card = this.closest('.offer-card');
+                    const name = card.querySelector('.offer-title').textContent;
+                    const priceText = card.querySelector('.current-price').textContent;
+                    const price = parseFloat(priceText.replace(/[^0-9.]/g, ''));
+                    const image = card.querySelector('.offer-image img').src;
+
+                    // Add item to cart
+                    addToCart(name, price, image, 'Special Offer');
+
+                    // Show animation on cart icon
+                    animateCartIcon();
+                });
+            });
+
+            // Function to add item to cart
+            function addToCart(name, price, image, origin) {
+                cart.push({
+                    name: name,
+                    price: price,
+                    image: image,
+                    origin: origin
+                });
+
+                // Save to localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+
+                // Update cart count
+                updateCartCount();
+
+                // Show "Added" feedback
+                showAddedFeedback();
+            }
+
+            // Function to show added feedback
+            function showAddedFeedback() {
+                const feedback = document.createElement('div');
+                feedback.textContent = 'Added to cart!';
+                feedback.style.position = 'fixed';
+                feedback.style.bottom = '100px';
+                feedback.style.right = '30px';
+                feedback.style.backgroundColor = 'var(--primary)';
+                feedback.style.color = 'white';
+                feedback.style.padding = '10px 20px';
+                feedback.style.borderRadius = '20px';
+                feedback.style.zIndex = '1000';
+                feedback.style.boxShadow = '0 3px 10px rgba(0,0,0,0.2)';
+                feedback.style.animation = 'fadeInOut 2s ease-in-out';
+
+                document.body.appendChild(feedback);
+
+                setTimeout(() => {
+                    feedback.remove();
+                }, 2000);
+            }
+
+            // Function to animate cart icon
+            function animateCartIcon() {
+                cartIcon.style.transform = 'scale(1.2)';
+                setTimeout(() => {
+                    cartIcon.style.transform = 'scale(1)';
+                }, 300);
+            }
+
+            // Cart icon click
+            cartIcon.addEventListener('click', function () {
+                cartModal.style.display = 'flex';
+                updateCartDisplay();
+            });
+
+            // Close cart
+            closeCart.addEventListener('click', function () {
+                cartModal.style.display = 'none';
+            });
+
+            // Close modal when clicking outside
+            cartModal.addEventListener('click', function (e) {
+                if (e.target === cartModal) {
+                    cartModal.style.display = 'none';
+                }
+            });
+
+            // Update cart count
+            function updateCartCount() {
+                cartCount.textContent = cart.length;
+            }
+
+            // Update cart display
+            function updateCartDisplay() {
+                // Clear current items
+                cartItemsContainer.innerHTML = '';
+
+                // Add each item to the cart display
+                let subtotal = 0;
+
+                cart.forEach((item, index) => {
+                    subtotal += item.price;
+
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                    <div class="cart-item-info">
+                        <img src="${item.image}" alt="${item.name}">
+                        <div class="cart-item-details">
+                            <h4>${item.name}</h4>
+                            <small>${item.origin}</small>
+                        </div>
+                    </div>
+                    <div class="cart-item-price">
+                        <span>$${item.price.toFixed(2)}</span>
+                        <button class="remove-item" data-index="${index}">×</button>
+                    </div>
+                `;
+
+                    cartItemsContainer.appendChild(itemElement);
+                });
+
+                // Calculate totals
+                const tax = subtotal * 0.08;
+                const total = subtotal + tax;
+
+                cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+                cartTax.textContent = `$${tax.toFixed(2)}`;
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        localStorage.setItem('cart', JSON.stringify(cart));
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+            }
+
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', function () {
+                alert('Thank you for your order! Your delicious food will be prepared soon.');
+                cart.length = 0;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartDisplay();
+                updateCartCount();
+                cartModal.style.display = 'none';
+            });
+
+            // Add animation for fade in/out
+            const style = document.createElement('style');
+            style.textContent = `
+            @keyframes fadeInOut {
+                0% { opacity: 0; transform: translateY(10px); }
+                20% { opacity: 1; transform: translateY(0); }
+                80% { opacity: 1; transform: translateY(0); }
+                100% { opacity: 0; transform: translateY(-10px); }
+            }
+        `;
+            document.head.appendChild(style);
+        });
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,1301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Other Buddy's Food Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #FFB74D;
+            --dark-color: #333;
+            --light-color: #f9f9f9;
+            --gradient: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        /* Header Styles - Same as home page */
+        .creative-header {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 5%;
+            background-color: rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .header-cta span {
+            margin-left: 20px;
+        }
+
+        .header-cta i {
+            margin-right: 5px;
+        }
+
+        .main-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .logo-badge {
+            background: #fff;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .logo {
+            font-family: 'Atma', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            margin-left: 100px;
+            transition: var(--transition);
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #fff5f5;
+            color: var(--primary-color);
+        }
+
+        /* About Us Hero Section */
+        .about-hero {
+            background: url('https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .about-hero-title {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-hero-subtitle {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        /* About Content Section */
+        .about-section {
+            padding: 80px 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: fadeInLeft 0.8s ease-out;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content {
+            animation: fadeInRight 0.8s ease-out;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Mission Section */
+        .mission-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #fff8f8 0%, #ffecec 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .mission-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        .mission-card:hover::before {
+            width: 100%;
+            opacity: 0.1;
+        }
+
+        .mission-icon {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .mission-card:hover .mission-icon {
+            transform: scale(1.2);
+            color: #ff5252;
+        }
+
+        .mission-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .mission-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Team Section */
+        .team-section {
+            padding: 80px 5%;
+            position: relative;
+        }
+
+        .team-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-image {
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.1);
+        }
+
+        .member-social {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s;
+        }
+
+        .team-member:hover .member-social {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .member-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            transition: all 0.3s;
+        }
+
+        .member-social a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .member-info {
+            padding: 25px 20px;
+        }
+
+        .member-name {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+        }
+
+        .member-position {
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .member-bio {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            padding: 80px 5%;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-item {
+            padding: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-number {
+            font-size: 60px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            transition: all 0.5s;
+        }
+
+        .stat-item:hover .stat-number {
+            transform: scale(1.1);
+        }
+
+        .stat-label {
+            font-size: 18px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Floating Animation Elements */
+        .floating-element {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .floating-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .floating-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 50px;
+            left: -50px;
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        .floating-3 {
+            width: 150px;
+            height: 150px;
+            top: 30%;
+            left: 20%;
+            animation: float 7s ease-in-out infinite 1s;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                order: 2;
+            }
+
+            .about-content {
+                order: 1;
+            }
+
+            .about-hero-title {
+                font-size: 48px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .about-hero {
+                height: 400px;
+            }
+
+            .about-hero-title {
+                font-size: 36px;
+            }
+
+            .about-hero-subtitle {
+                font-size: 18px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero {
+                height: 350px;
+            }
+
+            .about-hero-title {
+                font-size: 28px;
+            }
+
+            .about-hero-subtitle {
+                font-size: 16px;
+            }
+
+            .stat-number {
+                font-size: 40px;
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 5% 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 60px 0 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-col {
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .footer-about {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            color: #fff;
+            background-color: #333;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #ff6b6b;
+            transform: translateY(-3px);
+        }
+
+        .footer-heading {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6b6b;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ff6b6b;
+            padding-left: 5px;
+        }
+
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+            color: #bbb;
+        }
+
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: #ff6b6b;
+        }
+
+        .footer-newsletter {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .newsletter-form {
+            display: flex;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+        }
+
+        .newsletter-form button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #ff5252;
+        }
+
+        .footer-bottom {
+            background-color: #111;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-bottom .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .copyright {
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-legal a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-legal a:hover {
+            color: #ff6b6b;
+        }
+
+        @media (max-width: 768px) {
+            .footer-bottom .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+
+            .footer-legal {
+                justify-content: center;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-title {
+                font-size: 48px;
+            }
+
+            .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hours-time {
+                font-size: 28px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-button {
+                border-radius: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-top-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .header-cta span {
+                margin: 0 10px;
+            }
+
+            .hero-title {
+                font-size: 36px;
+            }
+
+            .hero-subtitle {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .hours-display {
+                flex-direction: column;
+            }
+
+            .hours-divider {
+                margin: 10px 0;
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="creative-header">
+        <div class="header-top-bar">
+            <div class="social-links">
+                <a href="https://web.facebook.com/?_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <div class="header-cta">
+                <span><i class="fas fa-phone"></i> +1 234 567 890</span>
+                <span><i class="fas fa-envelope"></i> hello@otherbuddys.com</span>
+            </div>
+        </div>
+
+        <div class="main-header-content">
+            <div class="logo">
+                <a href="index.html" class="logo-link">Other Buddy's</a>
+            </div>
+
+            <div class="header-actions">
+                <!-- Removed search box and auth buttons -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="newCateory.html"><i class="fas fa-utensils"></i> Menu</a>
+            <a class="nav-link" href="popular.html"><i class="fas fa-fire"></i> Popular</a>
+            <a class="nav-link" href="Offer.html"><i class="fas fa-percent"></i> Special Offers</a>
+            <a class="nav-link active" href="#"><i class="fas fa-info-circle"></i> About Us</a>
+            <a class="nav-link" href="Contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-content">
+            <h1 class="about-hero-title">Our Story</h1>
+            <p class="about-hero-subtitle">From humble beginnings to becoming your favorite food delivery service,
+                discover the passion behind Other Buddy's</p>
+        </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="about-section">
+        <div class="floating-element floating-1"></div>
+        <div class="floating-element floating-2"></div>
+        <div class="floating-element floating-3"></div>
+
+        <div class="about-container">
+            <div class="about-image">
+                <img src="about.PNG/buddy.webp" alt="Our Restaurant">
+            </div>
+
+            <div class="about-content">
+                <h2 class="section-title">Who We Are</h2>
+                <p class="section-description">Founded in 2023, <span class="highlight-text">Other Buddy's</span> began
+                    as a small family-owned restaurant with a big dream: to bring delicious, high-quality food to
+                    people's homes with convenience and care.</p>
+                <p class="section-description">What started as a single location has grown into a beloved food delivery
+                    service, serving thousands of happy customers daily. Our commitment to quality ingredients,
+                    authentic flavors, and exceptional service remains unchanged.</p>
+                <p class="section-description">Every dish we prepare is made with the same love and attention to detail
+                    as if we were serving it to our own family. That's the <span class="highlight-text">Other Buddy's
+                        difference</span>.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="mission-section">
+        <div class="mission-container">
+            <h2 class="section-title" style="text-align: center;">Our Core Values</h2>
+            <p class="section-description" style="text-align: center; max-width: 800px; margin: 0 auto 50px;">These
+                principles guide everything we do at Other Buddy's, from selecting ingredients to delivering your meal
+            </p>
+
+            <div class="mission-cards">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="mission-title">Quality Ingredients</h3>
+                    <p class="mission-description">We source only the freshest, highest quality ingredients from trusted
+                        local suppliers and farmers.</p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="mission-title">Passionate Chefs</h3>
+                    <p class="mission-description">Our culinary team brings years of experience and genuine passion to
+                        every dish they create.</p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="mission-title">Fast Delivery</h3>
+                    <p class="mission-description">We guarantee your food arrives hot and fresh with our efficient
+                        delivery network.</p>
+                </div>
+
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="mission-title">Customer Happiness</h3>
+                    <p class="mission-description">Your satisfaction is our top priority. We go above and beyond to
+                        ensure every order is perfect.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="team-container">
+            <h2 class="section-title" style="text-align: center;">Meet Our Team</h2>
+            <p class="section-description" style="text-align: center; max-width: 800px; margin: 0 auto 50px;">The
+                talented individuals who make Other Buddy's special</p>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="about.PNG/10c.jpg" alt="John Peterson">
+                        <div class="member-social">
+                            <a href="https://web.facebook.com/?_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">John Perera</h3>
+                        <p class="member-position">Founder & CEO</p>
+                        <p class="member-bio">With over 15 years in the culinary industry, John's vision drives our
+                            commitment to excellence.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="about.PNG/chef-presenting-something-white-background.jpg" alt="Maria Rodriguez">
+                        <div class="member-social">
+                            <a href="https://web.facebook.com/?_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Melon De Silva</h3>
+                        <p class="member-position">Head Chef</p>
+                        <p class="member-bio">Melon De Silva authentic flavors from around the world to our diverse menu
+                            offerings.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="about.PNG/g1.jpg" alt="David Kim">
+                        <div class="member-social">
+                            <a href="https://web.facebook.com/?_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Davidi Kuman</h3>
+                        <p class="member-position">Operations Manager</p>
+                        <p class="member-bio">Davidi Kuman our delivery network runs smoothly so your food arrives on
+                            time, every time.</p>
+                    </div>
+                </div>
+
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="about.PNG/g2.webp" alt="Sarah Johnson">
+                        <div class="member-social">
+                            <a href="https://web.facebook.com/?_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                            <a href="https://www.linkedin.com/feed/"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3 class="member-name">Saroja Wirasiri</h3>
+                        <p class="member-position">Customer Experience</p>
+                        <p class="member-bio">Saroja leads our customer service team to ensure every interaction with
+                            Other Buddy's is exceptional.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3 class="footer-logo">Other Buddy's</h3>
+                <p class="footer-about">Bringing delicious meals straight to your doorstep since 2020. Quality
+                    ingredients, authentic flavors, and excellent service.</p>
+                <div class="footer-social">
+                    <a href="https://web.facebook.com/?_rdc=1&_rdr#" class="social-icon"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="newCateory.html">Menu</a></li>
+                    <li><a href="popular.html">Popular</a></li>
+                    <li><a href="Offer.html">Special Offers</a></li>
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Contact Us</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Cityville</li>
+                    <li><i class="fas fa-phone"></i> +1234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> hello@otherbuddys.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 7.30AM - 10.30PM</li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-heading">Newsletter</h3>
+                <p class="footer-newsletter">Subscribe to get updates on special offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p class="copyright">&copy; 2023 Other Buddy's. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="Privacypolicy.html">Privacy Policy</a>
+                    <a href="Team of services.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

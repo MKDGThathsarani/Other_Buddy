@@ -1,0 +1,1251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Buddy's - Food Delivery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF6B6B;
+            --secondary-color: #FFB74D;
+            --dark-color: #333;
+            --light-color: #f9f9f9;
+            --gradient: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+        }
+
+        /* Header Styles */
+        .creative-header {
+            background: var(--gradient);
+            color: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top-bar {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 5%;
+            background-color: rgba(0, 0, 0, 0.1);
+            font-size: 14px;
+        }
+
+        .social-links a {
+            color: white;
+            margin-right: 15px;
+            font-size: 16px;
+            transition: transform 0.3s;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            color: white;
+        }
+
+        .header-cta span {
+            margin-left: 20px;
+        }
+
+        .header-cta i {
+            margin-right: 5px;
+        }
+
+        .main-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            margin-left: 80px;
+        }
+
+        .logo-text {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .logo-badge {
+            background: #fff;
+            color: var(--primary-color);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        /* Header Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+            margin-right: 150px;
+            
+        }
+
+        .login-btn,
+        .signup-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .login-btn {
+            color: white;
+            border: 1px solid white;
+        }
+
+        .login-btn:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .signup-btn {
+            background: white;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .signup-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Navigation */
+        .main-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #fff5f5;
+            color: var(--primary-color);
+        }
+
+        
+
+        /* Hero Section */
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center;
+            background-size: cover;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            color: white;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            margin-bottom: 10px;
+        }
+
+        .hero-title {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1;
+        }
+
+        .highlight-text {
+            color: var(--primary-color);
+        }
+
+        .hero-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            background: #ff5252;
+            color: white;
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #fff8f8 0%, #ffecec 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff5252 0%, #fad0c4 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 30px;
+        }
+
+        .feature-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .feature-description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Menu Categories */
+        .menu-section {
+            padding: 80px 5%;
+            background: linear-gradient(to bottom, #fff5f5 0%, #ffebeb 100%); padding: 40px 0;
+        }
+
+        .menu-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .category-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .category-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .category-description {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        .category-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .category-button:hover {
+            background: #ff5252;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #fff8f8 0%, #ffecec 100%);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-hours {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hours-title {
+            font-size: 24px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .hours-display {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .hours-icon {
+            font-size: 40px;
+            color:var(--secondary-color);
+            margin: 0 20px;
+        }
+
+        .hours-time {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        .hours-divider {
+            font-size: 24px;
+            margin: 0 15px;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .hours-note {
+            color: #666;
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #f9f9f9;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2);
+            color: var(--primary-color);
+        }
+
+        .service-name {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        .service-detail {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 80px 5%;
+            background: #f9f9f9;
+        }
+
+        .testimonials-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+
+        .author-info p {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* Newsletter */
+        .newsletter-section {
+            padding: 80px 5%;
+            background: var(--gradient);
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-description {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .newsletter-button {
+            background: var(--dark-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-button:hover {
+            background: #222;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 5% 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 60px 0 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-col {
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-about {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            color: #fff;
+            background-color: #333;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #ff6b6b;
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6b6b;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ff6b6b;
+            padding-left: 5px;
+        }
+        
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+            color: #bbb;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: #ff6b6b;
+        }
+        
+        .footer-newsletter {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .newsletter-form button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #ff5252;
+        }
+        
+        .footer-bottom {
+            background-color: #111;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-bottom .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-legal a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: #ff6b6b;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-bottom .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .footer-legal {
+                justify-content: center;
+            }
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 60px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .hero-title {
+                font-size: 48px;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .hours-time {
+                font-size: 28px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-button {
+                border-radius: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header-top-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .header-cta span {
+                margin: 0 10px;
+            }
+            
+            .hero-title {
+                font-size: 36px;
+            }
+            
+            .hero-subtitle {
+                font-size: 20px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .hours-display {
+                flex-direction: column;
+            }
+            
+            .hours-divider {
+                margin: 10px 0;
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="creative-header">
+        <div class="header-top-bar">
+            <div class="social-links">
+                <a href="https://web.facebook.com/?_rdc=1&_rdr#"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+                <a href="https://x.com/"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a>
+            </div>
+            <div class="header-cta">
+                <span><i class="fas fa-phone"></i> +1 234 567 890</span>
+                <span><i class="fas fa-envelope"></i> hello@otherbuddys.com</span>
+            </div>
+        </div>
+
+        <div class="main-header-content">
+            <div class="logo-container">
+                <span class="logo-text">Other Buddy's</span>
+                <span class="logo-badge">Since 2025</span>
+            </div>
+
+            <div class="header-actions">
+                
+                <div class="auth-buttons">
+                    <a href="http://127.0.0.1:5500/login.html" class="login-btn"><i class="fas fa-user"></i> Log in</a>
+                    <a href="http://127.0.0.1:5500/signup.html" class="signup-btn">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a class="nav-link active" href="#"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="popular.html"><i class="fas fa-fire"></i> Popular</a>
+            <a class="nav-link" href="Offer.html"><i class="fas fa-percent"></i> Special Offers</a>
+            <a class="nav-link" href="About.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a class="nav-link" href="Contact.html"><i class="fas fa-envelope"></i> Contact</a>
+            <a class="nav-link" href="http://127.0.0.1:5500/index.html"><i class="fa-solid fa-burger"></i>Burger Buddy</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-subtitle">Delicious Food Delivered To Your Doorstep</h1>
+            <h2 class="hero-title">
+                <span class="text-part">TASTE THE</span>
+                <span class="highlight-text">DIFFERENCE</span>
+            </h2>
+            <p class="hero-description">Experience culinary excellence with our handcrafted dishes made from the freshest ingredients and delivered with care.</p>
+            <a href="newCateory.html" class="cta-button">Order Now <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #ff5252;">Why Choose Us</h2>
+            <p class="section-subtitle">We're committed to providing you with the best food delivery experience</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h3 class="feature-title">Fresh Ingredients</h3>
+                <p class="feature-description">We source only the freshest, highest quality ingredients for all our dishes.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h3 class="feature-title">Fast Delivery</h3>
+                <p class="feature-description">Get your food delivered hot and fresh in under 30 minutes or it's free.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3 class="feature-title">Diverse Menu</h3>
+                <p class="feature-description">From local favorites to international cuisine, we have something for everyone.</p>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <h3 class="feature-title">Healthy Options</h3>
+                <p class="feature-description">We offer a wide selection of nutritious and balanced meal choices.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Categories -->
+    <section class="menu-section">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #ff5252;">Menu Categories</h2>
+            <p class="section-subtitle">Explore our delicious selection of culinary delights</p>
+        </div>
+        
+        <div class="menu-categories">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Rice Dishes" class="category-image">
+                <div class="category-content">
+                    <h3 class="category-title">Rice Specialties</h3>
+                    <p class="category-description">From fragrant basmati to sticky sushi rice, our rice dishes are a meal in themselves.</p>
+                    <a href="newCateory.html#rice" class="category-button">View Menu</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Noodles" class="category-image">
+                <div class="category-content">
+                    <h3 class="category-title">Noodle Dishes</h3>
+                    <p class="category-description">Slurp-worthy noodles from around the world, prepared to perfection.</p>
+                    <a href="newCateory.html#noodles" class="category-button">View Menu</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Desserts" class="category-image">
+                <div class="category-content">
+                    <h3 class="category-title">Sweet Ice</h3>
+                    <p class="category-description">Indulge in our decadent desserts that will satisfy any sweet tooth.</p>
+                    <a href="newCateory.html#sweet-ice" class="category-button">View Menu</a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Beverages" class="category-image">
+                <div class="category-content">
+                    <h3 class="category-title">Refreshing Drinks</h3>
+                    <p class="category-description">Complement your meal with our selection of beverages from around the world.</p>
+                    <a href="newCateory.html#refreshing-drinks" class="category-button">View Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #ff5252;">Our Services</h2>
+            <p class="section-subtitle">We're here to serve you better every day</p>
+        </div>
+        
+        <div class="services-container">
+            <div class="service-hours">
+                <h3 class="hours-title">Food orders are delivered daily from</h3>
+                <div class="hours-display">
+                    <span class="hours-time">7:30 AM</span>
+                    <span class="hours-divider" style="color: #FF6B6B;">to</span>
+                    <span class="hours-time">10:30 PM</span>
+                    <i class="fas fa-clock hours-icon" style="color:#FF6B6B ;"></i>
+                </div>
+                <p class="hours-note">Orders placed after 10:30 PM will be delivered the following day.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-kitchen-set service-icon" style="color:#FF6B6B ;"></i>
+                    <h3 class="service-name">Safety First</h3>
+                    <p class="service-detail">Stringent protocols are followed in food preparation and handling to ensure your safety.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-truck service-icon" style="color:#FF6B6B ;"></i>
+                    <h3 class="service-name">Personal Delivery</h3>
+                    <p class="service-detail">All deliveries are made by our trained staff to ensure quality and freshness.</p>
+                </div>
+                
+                <div class="service-card">
+                    <i class="fas fa-medal service-icon" style="color:#FF6B6B ;"></i>
+                    <h3 class="service-name">Quality Guarantee</h3>
+                    <p class="service-detail">We maintain five-star quality standards in every dish we prepare and deliver.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="section-header">
+            <h2 class="section-title" style="color: #ff5252;">What Our Customers Say</h2>
+            <p class="section-subtitle">Don't just take our word for it - hear from our satisfied customers</p>
+        </div>
+        
+        <div class="testimonials-container">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"The food from Other Buddy's is always fresh and delicious. Their delivery is lightning fast and the portions are generous. My go-to for busy weeknights!"</p>
+                    <div class="testimonial-author">
+                        <img src="Index PNG/8c.jpg" alt="Sarah J." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Shan Wijesinghe</h4>
+                            <p>Regular Customer</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I've tried many delivery services, but Other Buddy's stands out for their consistent quality and amazing customer service. Highly recommend their noodle dishes!"</p>
+                    <div class="testimonial-author">
+                        <img src="Index PNG/3c.jpg" alt="Michael T." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Michael Perera</h4>
+                            <p>Food Blogger</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"As someone with dietary restrictions, I appreciate how easy it is to find suitable options on their menu. The food always arrives hot and exactly as ordered."</p>
+                    <div class="testimonial-author">
+                        <img src="Index PNG/g2.webp" alt="Priya K." class="author-avatar">
+                        <div class="author-info">
+                            <h4>Priyani Wickramasinghe</h4>
+                            <p>Health Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3 class="footer-logo">Other Buddy's</h3>
+                <p class="footer-about">Bringing delicious meals straight to your doorstep since 2020. Quality ingredients, authentic flavors, and excellent service.</p>
+                <div class="footer-social">
+                    <a href="https://web.facebook.com/?_rdc=1&_rdr#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="newHome.html">Home</a></li>
+                    <li><a href="newCateory.html">Menu</a></li> 
+                    <li><a href="popular.html">Popular</a></li>
+                    <li><a href="Offer.html">Special Offers</a></li> 
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Contact Us</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Cityville</li>
+                    <li><i class="fas fa-phone"></i> +1234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> hello@otherbuddys.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 7.30AM - 10.30PM</li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Newsletter</h3>
+                <p class="footer-newsletter">Subscribe to get updates on special offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p class="copyright">&copy; 2023 Other Buddy's. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="Privacypolicy.html">Privacy Policy</a>
+                    <a href="Team of services.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">

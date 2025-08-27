@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Other Buddy's - Gourmet Food Delivery</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Atma:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #FF7D7D; /* Coral red */
+            --secondary-color: #ff6b6bf0; /* Orange */
+            --accent-color: #f76d6d; /* Teal */
+            --dark-color: #2D3436; /* Dark gray */
+            --light-color: #FDFDFD; /* Off white */
+            --gradient: linear-gradient(135deg, #ff6b6be0 0%, #f9b19d 100%);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.2);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background-color: white;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            z-index: 1000;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.98));
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .header-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .info-box {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 15px;
+            border-radius: 50px;
+            transition: var(--transition);
+            background: rgba(255, 125, 125, 0.1);
+            border: 1px solid rgba(255, 125, 125, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .info-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .info-box:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+            background: rgba(255, 125, 125, 0.15);
+        }
+
+        .info-box:hover::before {
+            opacity: 1;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            box-shadow: 0 3px 6px rgba(255, 125, 125, 0.2);
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .info-box:hover .info-icon {
+            transform: rotate(15deg) scale(1.1);
+        }
+
+        .info-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-text strong {
+            font-family: 'Atma', cursive;
+            font-size: 13px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .info-text span {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .logo {
+            font-family: 'Atma', cursive;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            background: var(--gradient);
+            padding: 12px 30px;
+            border-radius: 50px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition);
+            z-index: 1;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.3),
+                    transparent);
+            transition: var(--transition);
+        }
+
+        .logo:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .logo:hover::before {
+            left: 100%;
+        }
+
+        .logo-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+
+        /* Navigation Styles */
+         .main-nav {
+            background: accent( --#fcd4de8e);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-link {
+            color: var(--dark-color);
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 5px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        .nav-link i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            background: #fff5f5;
+            color: var(--primary-color);
+        }
+
+
+        /* Cart count badge */
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        /* Content Sections */
+        .content-section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            color: var(--primary-color);
+            font-size: 2.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(255,125,125,0.1);
+        }
+
+        .section-header h2 span {
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        /* Food Grid */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .food-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(255,125,125,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .food-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--primary-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .food-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .food-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .food-info {
+            padding: 20px;
+        }
+
+        .food-info h3 {
+            margin: 0 0 12px;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .food-info h3 span {
+            margin-right: 10px;
+        }
+
+        .food-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .food-tag-item {
+            background: #ffeeee;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+        }
+
+        .food-description {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .food-description span {
+            display: inline-block;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 5px;
+        }
+
+        .food-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .add-to-cart {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        .section-button {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(255,125,125,0.3);
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-top: 50px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .section-button:hover {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF9E4F 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255,125,125,0.4);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 80px 5% 30px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            opacity: 0.8;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+        }
+
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer {
+            background-color: #222;
+            color: #fff;
+            padding: 60px 0 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-col {
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        
+        .footer-about {
+            color: #bbb;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-icon {
+            color: #fff;
+            background-color: #333;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: #ff6b6b;
+            transform: translateY(-3px);
+        }
+        
+        .footer-heading {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6b6b;
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #ff6b6b;
+            padding-left: 5px;
+        }
+        
+        .footer-contact {
+            list-style: none;
+            padding: 0;
+            color: #bbb;
+        }
+        
+        .footer-contact li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-contact i {
+            color: #ff6b6b;
+        }
+        
+        .footer-newsletter {
+            color: #bbb;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .newsletter-form {
+            display: flex;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            outline: none;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .newsletter-form button {
+            background-color: #ff6b6b;
+            color: #fff;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #ff5252;
+        }
+        
+        .footer-bottom {
+            background-color: #111;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        .footer-bottom .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: #bbb;
+            font-size: 14px;
+        }
+        
+        .footer-legal {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-legal a {
+            color: #bbb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-legal a:hover {
+            color: #ff6b6b;
+        }
+        
+        @media (max-width: 768px) {
+            .footer-bottom .footer-container {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .footer-legal {
+                justify-content: center;
+            }
+        }
+
+        /* Shopping Cart Modal */
+        #cart-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cart-modal-content {
+            background: white;
+            width: 90%;
+            max-width: 600px;
+            border-radius: 12px;
+            padding: 20px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .cart-header h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 0;
+        }
+
+        #close-cart {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        #cart-items {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .cart-item-details h4 {
+            margin: 0 0 5px;
+            color: var(--dark-color);
+        }
+
+        .cart-item-details small {
+            color: #888;
+        }
+
+        .cart-item-price {
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-item-price span {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-right: 20px;
+        }
+
+        .remove-item {
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+
+        .cart-totals {
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .cart-total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+
+        #checkout-btn {
+            background: var(--gradient);
+            color: white;
+            border: none;
+            padding: 12px 0;
+            width: 100%;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        #checkout-btn:hover {
+            background: linear-gradient(135deg, #FF6B6B 0%, #FF9E4F 100%);
+        }
+
+        /* Cart Icon */
+        #cart-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--gradient);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255,125,125,0.4);
+            z-index: 999;
+            transition: transform 0.3s;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: white;
+            color: var(--primary-color);
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .header {
+                flex-direction: column;
+                gap: 20px;
+                padding: 15px 5%;
+            }
+
+            .header-info {
+                width: 100%;
+                justify-content: space-between;
+                gap: 10px;
+            }
+
+            .info-box {
+                padding: 8px 12px;
+                flex: 1;
+            }
+
+            .logo {
+                order: -1;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-wrap: wrap;
+            }
+
+            .nav-link {
+                padding: 12px 5px;
+                font-size: 14px;
+                min-width: 80px;
+            }
+
+            .nav-link i {
+                font-size: 16px;
+                margin-bottom: 3px;
+            }
+
+            .info-text strong {
+                font-size: 11px;
+            }
+
+            .info-text span {
+                font-size: 12px;
+            }
+
+            .info-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 14px;
+            }
+
+            .section-header h2 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-info {
+                flex-wrap: wrap;
+            }
+
+            .info-box {
+                min-width: calc(50% - 10px);
+            }
+
+            .nav-link {
+                font-size: 12px;
+                padding: 10px 2px;
+            }
+
+            .nav-link i {
+                font-size: 14px;
+                margin-bottom: 2px;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+
+            .food-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-column {
+                min-width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-info">
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="info-text">
+                    <strong>contact us</strong>
+                    <span>+94789543215</span>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="info-text">
+                    <strong>Personalised</strong>
+                    <span>Delivery</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="logo">
+            <a href="index.html" class="logo-link">Other Buddy's</a>
+        </div>
+
+        <div class="header-info">
+            <div class="info-box">
+                <div class="info-icon">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="info-text">
+                    <strong>Daily Delivery</strong>
+                    <span>7 A.M. to 10.30 P.M.</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a class="nav-link" href="popular.html"><i class="fas fa-fire"></i> Popular</a>
+            <a class="nav-link" href="Offer.html"><i class="fas fa-percent"></i> Special Offers</a>
+            <a class="nav-link active" href="#"><i class="fa-solid fa-list"></i> Categories</a>
+            <a class="nav-link" href="About.html"><i class="fas fa-info-circle"></i> About Us</a>
+            <a class="nav-link" href="Contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+    </nav>
+
+    <!-- Fried Rice -->
+    <section id="rice" class="content-section" style="background: linear-gradient(135deg, #f8d4d4 0%, #ffecec 100%);">
+        <div class="section-header">
+            <h2 style="font-family: 'Atma', cursive; font-size: 3.5rem;">🍛 Rice Selection<span></span></h2>
+            <p>Grain-perfect rice dishes from around the world</p>
+        </div>
+
+        <div class="food-grid">
+            <!-- Sushi Rice -->
+            <div class="food-item">
+                <div class="food-tag">Japan</div>
+                <img src="Cateory PNG/sushi rice.png" alt="Sushi Rice">
+                <div class="food-info">
+                    <h3><span>Sushi Rice</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Thick</span>
+                        <span class="food-tag-item">Chewy</span>
+                        <span class="food-tag-item">Hearty</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Japanese Short-Grain Rice<br>
+                        <span>🥚</span>Rice Vinegar<br>
+                        <span>🍙</span>Sugar<br>
+                        <span>🥩</span>Salt<br>
+                        <span>🥨</span>Kombu
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$10.99</span>
+                        <button class="add-to-cart" data-name="Sushi Rice" data-price="10.99"
+                            data-image="Cateory PNG/sushi rice.png" data-origin="Japan">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Clay Pot Rice -->
+            <div class="food-item">
+                <div class="food-tag">China</div>
+                <img src="Cateory PNG/Clay Pot Rice.webp" alt="Clay Pot Rice">
+                <div class="food-info">
+                    <h3><span>Clay Pot Rice</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Nutty</span>
+                        <span class="food-tag-item">Healthy</span>
+                        <span class="food-tag-item">Traditional</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Jasmine or Short-Grain Rice <br>
+                        <span>🥚</span>Protein<br>
+                        <span>🍾</span>Sauce Blend<br>
+                        <span>🧂</span>Aromatics<br>
+                        <span>🌿</span>Toppings
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$9.99</span>
+                        <button class="add-to-cart" data-name="Clay Pot Rice" data-price="9.99"
+                            data-image="Cateory PNG/Clay Pot Rice.webp" data-origin="China">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Biryani  -->
+            <div class="food-item">
+                <div class="food-tag">India</div>
+                <img src="Cateory PNG/Biryani.jpg" alt="Biryani">
+                <div class="food-info">
+                    <h3><span>Biryani</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Iconic</span>
+                        <span class="food-tag-item">Rich</span>
+                        <span class="food-tag-item">Comforting</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Basmati Rice<br>
+                        <span>🥚</span>Protein<br>
+                        <span>🍅</span>Aromatics & Spices<br>
+                        <span>🧂</span>Yogurt Marinade<br>
+                        <span>🧄</span>Fried Onions
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$11.99</span>
+                        <button class="add-to-cart" data-name="Biryani" data-price="11.99"
+                            data-image="Cateory PNG/Biryani.jpg" data-origin="India">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="section-button">
+                "Hungry? Come feast on mouthwatering magic! 🍗🍝🍰 Bold flavors, endless joy. 😋 Don't wait—dig in! 🎉🔥"
+            </button>
+        </div>
+    </section>
+
+    <!-- Noodles -->
+    <section id="noodles" class="content-section" style="background: linear-gradient(to bottom, #fff5f5 0%, #ffebeb 100%);">
+        <div class="section-header">
+            <h2 style="font-family: 'Atma', cursive; font-size: 3.5rem;">🍜 Noodles Selection<span></span></h2>
+            <p>Slurp-worthy noodles from around the world</p>
+        </div>
+
+        <div class="food-grid">
+            <!-- Udon -->
+            <div class="food-item">
+                <div class="food-tag">JAPANESE</div>
+                <img src="Cateory PNG/Udon.jpg" alt="Udon">
+                <div class="food-info">
+                    <h3><span>Udon</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Thick</span>
+                        <span class="food-tag-item">Chewy</span>
+                        <span class="food-tag-item">Hearty</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Udon Noodles<br>
+                        <span>🥚</span>Broth Base<br>
+                        <span>🥬</span>Toppings<br>
+                        <span>🧂</span>Garnishes<br>
+                        <span>🌿</span>Green Onions
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$10.99</span>
+                        <button class="add-to-cart" data-name="Udon" data-price="10.99"
+                            data-image="Cateory PNG/Udon.jpg" data-origin="Japan">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khao Soi  -->
+            <div class="food-item">
+                <div class="food-tag">Thailand</div>
+                <img src="Cateory PNG/Khao Soi.webp" alt="Khao Soi">
+                <div class="food-info">
+                    <h3><span>Khao Soi</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Rich</span>
+                        <span class="food-tag-item">Creamy</span>
+                        <span class="food-tag-item">Aromatic</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Egg Noodles<br>
+                        <span>🥚</span>Coconut Curry Broth<br>
+                        <span>🍗</span>Chicken or Beef<br>
+                        <span>🧂</span>Shallots & Lime<br>
+                        <span>🥨</span>Crispy Noodles
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$12.99</span>
+                        <button class="add-to-cart" data-name="Khao Soi" data-price="12.99"
+                            data-image="Cateory PNG/Khao Soi.webp" data-origin="Thailand">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chow Mein  -->
+            <div class="food-item">
+                <div class="food-tag">China</div>
+                <img src="Cateory PNG/Chow Mein.jpg" alt="Ramen">
+                <div class="food-info">
+                    <h3><span>Chow Mein </span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Iconic</span>
+                        <span class="food-tag-item">Rich</span>
+                        <span class="food-tag-item">Comforting</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Cooked Rice<br>
+                        <span>🥚</span>Eggs<br>
+                        <span>🧀</span>Soy Sauce<br>
+                        <span>🧂</span>Salt & Pepper<br>
+                        <span>🌿</span>Green Onions
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$11.49</span>
+                        <button class="add-to-cart" data-name="Pad Thai" data-price="11.49"
+                            data-image="Cateory PNG/Pad Thai.jpg" data-origin="Thailand">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="section-button">
+                "Craving something amazing? We've got you! 🍔🌮🍣 Juicy, crispy, irresistibly tasty. 🤤 Your perfect bite awaits! ✨"
+            </button>
+        </div>
+    </section>
+
+    <!-- Sweet Ice -->
+    <section id="sweet-ice" class="content-section" style="background: linear-gradient(to bottom, #fff5f5 0%, #ffebeb 100%);">
+        <div class="section-header">
+            <h2 style="font-family: 'Atma', cursive; font-size: 3.5rem;">🍨 Sweet Ice Selection<span></span></h2>
+            <p>Cool and refreshing desserts to satisfy your sweet tooth</p>
+        </div>
+
+        <div class="food-grid">
+            <!-- Mochi Ice Cream -->
+            <div class="food-item">
+                <div class="food-tag">Japan</div>
+                <img src="Cateory PNG/Mochi Ice Cream.jpg" alt="Mochi Ice Cream">
+                <div class="food-info">
+                    <h3><span>Mochi Ice Cream</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Chewy</span>
+                        <span class="food-tag-item">Creamy</span>
+                        <span class="food-tag-item">Sweet</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Glutinous Rice Flour<br>
+                        <span>🍢</span>Ice Cream Filling<br>
+                        <span>🍥</span>Sugar<br>
+                        <span>🧂</span>Cornstarch<br>
+                        <span>🍨</span>Various Flavors
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$8.99</span>
+                        <button class="add-to-cart" data-name="Mochi Ice Cream" data-price="8.99"
+                            data-image="Cateory PNG/Mochi Ice Cream.jpg" data-origin="Japan">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bingsu -->
+            <div class="food-item">
+                <div class="food-tag">Korea</div>
+                <img src="Cateory PNG/Bingsu.jpg" alt="Bingsu">
+                <div class="food-info">
+                    <h3><span>Bingsu</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Fluffy</span>
+                        <span class="food-tag-item">Sweet</span>
+                        <span class="food-tag-item">Refreshing</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Shaved Ice<br>
+                        <span>🥛</span>Sweetened Condensed Milk<br>
+                        <span>🧈</span>Red Bean Paste<br>
+                        <span>🧂</span>Fruit Toppings<br>
+                        <span>🍨</span>Various Flavors
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$9.49</span>
+                        <button class="add-to-cart" data-name="Bingsu" data-price="9.49"
+                            data-image="Cateory PNG/Bingsu.jpg" data-origin="Korea">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Golden Gaytime -->
+            <div class="food-item">
+                <div class="food-tag">Australia</div>
+                <img src="Cateory PNG/Golden Gaytime.jpg" alt="Ramen">
+                <div class="food-info">
+                    <h3><span>Golden Gaytime</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Iconic</span>
+                        <span class="food-tag-item">Rich</span>
+                        <span class="food-tag-item">Comforting</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍹</span>Vanilla Ice Cream<br>
+                        <span>🥚</span>Toffee Swirl<br>
+                        <span>🍫</span>Chocolate Coating<br>
+                        <span>🧂</span>Biscuit Crumbs<br>
+                        <span>🥛</span>Stabilizers & Emulsifiers
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$8.99</span>
+                        <button class="add-to-cart" data-name="Falooda" data-price="8.99"
+                            data-image="Cateory PNG/Falooda.jpg" data-origin="India">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="section-button">
+                "Food so good, you'll dream about it! 🍕🍩 Fresh, hot, and full of love. ❤️🔥 Come taste happiness! 😍"
+            </button>
+        </div>
+    </section>
+
+    <!-- Refreshing Drinks -->
+    <section id="refreshing-drinks" class="content-section" style="background: linear-gradient(to bottom, #fff5f5 0%, #ffebeb 100%);">
+        <div class="section-header">
+            <h2 style="font-family: 'Atma', cursive; font-size: 3.5rem;">🍹 Refreshing Drinks<span></span></h2>
+            <p>Cool and refreshing beverages from around the world</p>
+        </div>
+
+        <div class="food-grid">
+            <!-- Thai Iced Tea -->
+            <div class="food-item">
+                <div class="food-tag">Thailand</div>
+                <img src="Cateory PNG/Thai Iced Tea.jpg" alt="Thai Iced Tea">
+                <div class="food-info">
+                    <h3><span>Thai Iced Tea</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Sweet</span>
+                        <span class="food-tag-item">Creamy</span>
+                        <span class="food-tag-item">Aromatic</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍬</span>Thai Tea Mix<br>
+                        <span>🥤</span>Condensed Milk<br>
+                        <span>🥛</span>Evaporated Milk<br>
+                        <span>🧂</span>Sugar<br>
+                        <span>🧊</span>Ice
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$5.99</span>
+                        <button class="add-to-cart" data-name="Thai Iced Tea" data-price="5.99"
+                            data-image="Cateory PNG/Thai Iced Tea.jpg" data-origin="Thailand">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bubble Tea -->
+            <div class="food-item">
+                <div class="food-tag">Taiwan</div>
+                <img src="Cateory PNG/Bubble Tea.jpeg" alt="Bubble Tea">
+                <div class="food-info">
+                    <h3><span>Bubble Tea</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Sweet</span>
+                        <span class="food-tag-item">Chewy</span>
+                        <span class="food-tag-item">Refreshing</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍷</span>Tea Base<br>
+                        <span>🥚</span>Tapioca Pearls<br>
+                        <span>🥛</span>Milk or Fruit Flavor<br>
+                        <span>🍦</span>Sugar Syrup<br>
+                        <span>🧊</span>Ice
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$6.49</span>
+                        <button class="add-to-cart" data-name="Bubble Tea" data-price="6.49"
+                            data-image="Cateory PNG/Bubble Tea.jpg" data-origin="Taiwan">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lassi -->
+            <div class="food-item">
+                <div class="food-tag">India</div>
+                <img src="Cateory PNG/Lassi.jpg" alt="Lassi">
+                <div class="food-info">
+                    <h3><span>Lassi</span></h3>
+                    <div class="food-tags">
+                        <span class="food-tag-item">Creamy</span>
+                        <span class="food-tag-item">Refreshing</span>
+                        <span class="food-tag-item">Tangy</span>
+                    </div>
+                    <p class="food-description">
+                        <span>🍚</span>Yogurt<br>
+                        <span>🥛</span>Water or Milk<br>
+                        <span>🥚</span>Sugar or Salt<br>
+                        <span>🧂</span>Spices (optional)<br>
+                        <span>🍡</span>Fruit (optional)
+                    </p>
+                    <div class="food-price">
+                        <span class="price">$5.49</span>
+                        <button class="add-to-cart" data-name="Lassi" data-price="5.49"
+                            data-image="Cateory PNG/Lassi.jpg" data-origin="India">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="section-button">
+                "Savor every bite of pure delight! 🍴🔥 From sizzling grills to sweet treats. 😍 Your taste buds will thank you! ✨"
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3 class="footer-logo">Other Buddy's</h3>
+                <p class="footer-about">Bringing delicious meals straight to your doorstep since 2020. Quality ingredients, authentic flavors, and excellent service.</p>
+                <div class="footer-social">
+                    <a href="https://web.facebook.com/?_rdc=1&_rdr#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com/" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="newHome.html">Home</a></li>
+                    <li><a href="newCateory.html">Menu</a></li> 
+                    <li><a href="popular.html">Popular</a></li>
+                    <li><a href="Offer.html">Special Offers</a></li> 
+                    <li><a href="About.html">About Us</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                    
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Contact Us</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-map-marker-alt"></i> 123 Food Street, Cityville</li>
+                    <li><i class="fas fa-phone"></i> +1234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> hello@otherbuddys.com</li>
+                    <li><i class="fas fa-clock"></i> Mon-Sun: 7.30AM - 10.30PM</li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3 class="footer-heading">Newsletter</h3>
+                <p class="footer-newsletter">Subscribe to get updates on special offers</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-container">
+                <p class="copyright">&copy; 2023 Other Buddy's. All Rights Reserved.</p>
+                <div class="footer-legal">
+                    <a href="Privacypolicy.html">Privacy Policy</a>
+                    <a href="Team of services.html">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cart-modal"> 
+        <div class="cart-modal-content">
+            <div class="cart-header">
+                <h2>Your Order</h2>
+                <button id="close-cart">&times;</button>
+            </div>
+            <div id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+            </div>
+            <div class="cart-totals">
+                <div class="cart-total-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">$0.00</span>
+                </div>
+                <div class="cart-total-row">
+                    <span>Tax (8%):</span>
+                    <span id="cart-tax">$0.00</span>
+                </div>
+                <div class="cart-total-row" style="font-size: 1.2rem;">
+                    <span>Total:</span>
+                    <span id="cart-total" style="color: var(--primary-color); font-weight: bold;">$0.00</span>
+                </div>
+                <button id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Icon -->
+    <div id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cart-count">0</span>
+    </div>
+
+    <script>
+        // Shopping Cart Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const cart = [];
+            const cartIcon = document.getElementById('cart-icon');
+            const cartModal = document.getElementById('cart-modal');
+            const closeCart = document.getElementById('close-cart');
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+            const cartTax = document.getElementById('cart-tax');
+            const cartTotal = document.getElementById('cart-total');
+            const cartCount = document.getElementById('cart-count');
+
+            // Add to Cart buttons
+            const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const name = this.getAttribute('data-name');
+                    const price = parseFloat(this.getAttribute('data-price'));
+                    const image = this.getAttribute('data-image');
+                    const origin = this.getAttribute('data-origin');
+
+                    // Add item to cart
+                    cart.push({
+                        name: name,
+                        price: price,
+                        image: image,
+                        origin: origin
+                    });
+
+                    // Update cart count
+                    updateCartCount();
+
+                    // Show animation on cart icon
+                    cartIcon.style.transform = 'scale(1.2)';
+                    setTimeout(() => {
+                        cartIcon.style.transform = 'scale(1)';
+                    }, 300);
+                });
+            });
+
+            // Cart icon click
+            cartIcon.addEventListener('click', function () {
+                cartModal.style.display = 'flex';
+                updateCartDisplay();
+            });
+
+            // Close cart
+            closeCart.addEventListener('click', function () {
+                cartModal.style.display = 'none';
+            });
+
+            // Update cart count
+            function updateCartCount() {
+                cartCount.textContent = cart.length;
+            }
+
+            // Update cart display
+            function updateCartDisplay() {
+                // Clear current items
+                cartItemsContainer.innerHTML = '';
+
+                // Add each item to the cart display
+                let subtotal = 0;
+
+                cart.forEach((item, index) => {
+                    subtotal += item.price;
+
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'cart-item';
+                    itemElement.innerHTML = `
+                        <div class="cart-item-info">
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-details">
+                                <h4>${item.name}</h4>
+                                <small>${item.origin}</small>
+                            </div>
+                        </div>
+                        <div class="cart-item-price">
+                            <span>$${item.price.toFixed(2)}</span>
+                            <button class="remove-item" data-index="${index}">×</button>
+                        </div>
+                    `;
+
+                    cartItemsContainer.appendChild(itemElement);
+                });
+
+                // Calculate totals
+                const tax = subtotal * 0.08;
+                const total = subtotal + tax;
+
+                cartSubtotal.textContent = `$${subtotal.toFixed(2)}`;
+                cartTax.textContent = `$${tax.toFixed(2)}`;
+                cartTotal.textContent = `$${total.toFixed(2)}`;
+
+                // Add event listeners to remove buttons
+                document.querySelectorAll('.remove-item').forEach(button => {
+                    button.addEventListener('click', function () {
+                        const index = parseInt(this.getAttribute('data-index'));
+                        cart.splice(index, 1);
+                        updateCartDisplay();
+                        updateCartCount();
+                    });
+                });
+            }
+
+            // Checkout button
+            document.getElementById('checkout-btn').addEventListener('click', function () {
+                alert('Thank you for your order! Your delicious food will be prepared soon.');
+                cart.length = 0;
+                updateCartDisplay();
+                updateCartCount();
+                cartModal.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
